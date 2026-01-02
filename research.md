@@ -4,19 +4,31 @@
 
 This phase is governed by your organization's Corporate Standards. Before proceeding:
 
-1. **Reference the applicable standards** from `/standards/`:
-   - `global/principles.md` - Core principles
-   - `global/security-privacy.md` - Security and privacy rules
-   - `domains/code-architecture.md` - Code standards (if product research)
-   - `domains/content-voice.md` - Voice standards (if content research)
-   - `domains/design-ui.md` - Design standards (if design research)
-   - `phases/research.md` - Research-specific standards
+1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
-2. **Apply standards throughout**: Research outputs must comply with referenced standards (especially R-1 through R-8).
+2. **Load applicable standards**: Based on the manifest's `phases.research.includes` list, read and apply each referenced standards file from `/standards/`:
+   ```yaml
+   # Example from standards-manifest.yml:
+   phases:
+     research:
+       includes:
+         - global/principles.md
+         - global/security-privacy.md
+         - domains/code-architecture.md
+         - domains/content-voice.md
+         - domains/design-ui.md
+         - phases/research.md
+   ```
 
-3. **Document compliance**: Include a Standards Compliance section in the RSD output.
+3. **Apply standards throughout**: Research outputs must comply with all loaded standards rules.
 
-If standards files are not available, proceed without them but note that standards should be established for team consistency.
+4. **Document compliance**: Include a Standards Compliance section in the RSD output, noting:
+   - Standards version (from `version` field in manifest)
+   - Which standards files were applied
+   - Compliance status for key rules
+   - Any deviations with rationale
+
+If the standards manifest or standards files are not available, proceed without them but note that standards should be established for team consistency.
 
 ---
 

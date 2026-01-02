@@ -4,17 +4,29 @@
 
 This phase is governed by your organization's Corporate Standards. Before proceeding:
 
-1. **Reference the applicable standards** from `/standards/`:
-   - `global/principles.md` - Core principles
-   - `global/terminology.md` - Approved terminology
-   - `domains/content-voice.md` - Voice and tone standards
-   - `phases/create-crd.md` - CRD-specific standards
+1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
-2. **Apply standards throughout**: CRD outputs must comply with referenced standards (especially CRD-1 through CRD-7, VOICE-1 through VOICE-7).
+2. **Load applicable standards**: Based on the manifest's `phases.create-crd.includes` list, read and apply each referenced standards file from `/standards/`:
+   ```yaml
+   # Example from standards-manifest.yml:
+   phases:
+     create-crd:
+       includes:
+         - global/principles.md
+         - global/terminology.md
+         - domains/content-voice.md
+         - phases/create-crd.md
+   ```
 
-3. **Document compliance**: Include a Standards Compliance section noting which standards were applied.
+3. **Apply standards throughout**: CRD outputs must comply with all loaded standards rules.
 
-If standards files are not available, proceed without them but note that standards should be established for team consistency.
+4. **Document compliance**: Include a Standards Compliance section in the CRD output, noting:
+   - Standards version (from `version` field in manifest)
+   - Which standards files were applied
+   - Compliance status for key rules
+   - Any deviations with rationale
+
+If the standards manifest or standards files are not available, proceed without them but note that standards should be established for team consistency.
 
 ---
 

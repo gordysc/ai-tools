@@ -4,18 +4,30 @@
 
 This phase is governed by your organization's Corporate Standards. Before proceeding:
 
-1. **Reference the applicable standards** from `/standards/`:
-   - `global/principles.md` - Core principles
-   - `global/security-privacy.md` - Security and privacy rules
-   - `global/accessibility.md` - Accessibility requirements
-   - `domains/code-architecture.md` - Code and architecture standards
-   - `phases/execute-tasks.md` - Execution standards
+1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
-2. **Apply standards throughout**: All work must comply with referenced standards (especially EXEC-1 through EXEC-8, CODE-1 through CODE-9).
+2. **Load applicable standards**: Based on the manifest's `phases.execute-tasks.includes` list, read and apply each referenced standards file from `/standards/`:
+   ```yaml
+   # Example from standards-manifest.yml:
+   phases:
+     execute-tasks:
+       includes:
+         - global/principles.md
+         - global/security-privacy.md
+         - global/accessibility.md
+         - domains/code-architecture.md
+         - phases/execute-tasks.md
+   ```
 
-3. **Document compliance**: Note standards compliance and any deviations in PR descriptions.
+3. **Apply standards throughout**: All work must comply with all loaded standards rules.
 
-If standards files are not available, proceed without them but note that standards should be established for team consistency.
+4. **Document compliance**: Note in PR descriptions:
+   - Standards version (from `version` field in manifest)
+   - Which standards files were applied
+   - Compliance status for key rules
+   - Any deviations with rationale
+
+If the standards manifest or standards files are not available, proceed without them but note that standards should be established for team consistency.
 
 ---
 

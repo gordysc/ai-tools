@@ -5,15 +5,25 @@
 
 This phase is governed by your organization's Corporate Standards. Before proceeding:
 
-1. **Reference the applicable standards** from `/standards/`:
-   - `global/principles.md` - Core principles
-   - `phases/generate-tasks.md` - Task generation standards
+1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
-2. **Apply standards throughout**: Task lists must comply with referenced standards (especially TASKS-1 through TASKS-7).
+2. **Load applicable standards**: Based on the manifest's `phases.generate-tasks.includes` list, read and apply each referenced standards file from `/standards/`:
+   ```yaml
+   # Example from standards-manifest.yml:
+   phases:
+     generate-tasks:
+       includes:
+         - global/principles.md
+         - phases/generate-tasks.md
+   ```
 
-3. **Document compliance**: Include standards version in the generated task file.
+3. **Apply standards throughout**: Task lists must comply with all loaded standards rules.
 
-If standards files are not available, proceed without them but note that standards should be established for team consistency.
+4. **Document compliance**: Include in the generated task file:
+   - Standards version (from `version` field in manifest)
+   - Which standards files were applied
+
+If the standards manifest or standards files are not available, proceed without them but note that standards should be established for team consistency.
 
 ---
 
