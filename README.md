@@ -188,6 +188,10 @@ ai-tools/
 - **Take your time during execution**: The pause-and-approve pattern prevents runaway changes
 - **Keep the task file updated**: It serves as documentation of what was done
 
+## Credits
+
+Huge credits to Ryan Carson (ryancarson.com) who did most of this foundational work, and his demo on the "How I AI" podcast for lighting me on fire for this stuff.
+
 ## License
 
 MIT
