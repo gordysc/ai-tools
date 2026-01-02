@@ -58,6 +58,8 @@ Copy the contents of the appropriate `create-*.md` file into your AI assistant, 
 
 **Example - Creating a PRD:**
 
+NOTE: Most AI tools allow you to directly reference your file with the "@" preface. But, if not, you can paste in the contents as stated below. 
+
 ```
 [Paste contents of create-prd.md]
 
