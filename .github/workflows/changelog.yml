@@ -1,0 +1,148 @@
+name: Changelog
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Start date (YYYY-MM-DD)'
+        required: true
+      end_date:
+        description: 'End date (YYYY-MM-DD)'
+        required: true
+      output_type:
+        description: 'Output type'
+        required: true
+        default: 'file'
+        type: choice
+        options:
+          - file
+          - release
+
+jobs:
+  generate-changelog:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get commits in date range
+        id: commits
+        env:
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          COMMITS=$(git log --after="$START_DATE" --before="$END_DATE 23:59:59" --pretty=format:"- %h: %s (%an)" --reverse)
+
+          if [ -z "$COMMITS" ]; then
+            echo "No commits found in the specified date range"
+            exit 1
+          fi
+
+          echo "Found commits:"
+          echo "$COMMITS"
+
+          echo "$COMMITS" > commits.txt
+
+      - name: Generate changelog with AI
+        id: changelog
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          COMMITS=$(cat commits.txt)
+
+          cat > prompt.txt << 'PROMPT_END'
+          You are a technical writer. Based on the following git commits, generate a clear, user-friendly changelog.
+
+          Group changes into categories like:
+          - New Features
+          - Bug Fixes
+          - Improvements
+          - Breaking Changes (if any)
+
+          Only include categories that have relevant commits. Write concise descriptions that non-technical users can understand. Do not include commit hashes in the final output.
+
+          Generate the changelog in markdown format.
+
+          Commits:
+          PROMPT_END
+
+          echo "$COMMITS" >> prompt.txt
+
+          FULL_PROMPT=$(cat prompt.txt)
+
+          RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            --data-binary @- << EOF
+          {
+            "model": "claude-sonnet-4-5-20250929",
+            "max_tokens": 4096,
+            "messages": [{"role": "user", "content": $(echo "$FULL_PROMPT" | jq -Rs .)}]
+          }
+          EOF
+          )
+
+          CHANGELOG=$(echo "$RESPONSE" | jq -r '.content[0].text // empty')
+
+          if [ -z "$CHANGELOG" ]; then
+            echo "Error: Failed to generate changelog"
+            echo "API Response: $RESPONSE"
+            exit 1
+          fi
+
+          cat > CHANGELOG_GENERATED.md << EOF
+          # Changelog
+
+          **Period:** $START_DATE to $END_DATE
+
+          ---
+
+          $CHANGELOG
+          EOF
+
+          echo "Generated changelog:"
+          cat CHANGELOG_GENERATED.md
+
+      - name: Upload changelog as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: changelog-${{ inputs.start_date }}-to-${{ inputs.end_date }}
+          path: CHANGELOG_GENERATED.md
+
+      - name: Create Release
+        if: ${{ inputs.output_type == 'release' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          RELEASE_TAG="changelog-${START_DATE}-${END_DATE}"
+          RELEASE_TITLE="Changelog: ${START_DATE} to ${END_DATE}"
+
+          gh release create "$RELEASE_TAG" \
+            --title "$RELEASE_TITLE" \
+            --notes-file CHANGELOG_GENERATED.md
+
+      - name: Commit changelog to repo
+        if: ${{ inputs.output_type == 'file' }}
+        env:
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          FILENAME="changelogs/changelog-${START_DATE}-to-${END_DATE}.md"
+          mkdir -p changelogs
+          mv CHANGELOG_GENERATED.md "$FILENAME"
+
+          git add "$FILENAME"
+          git commit -m "Add changelog for ${START_DATE} to ${END_DATE}"
+          git push
