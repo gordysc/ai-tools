@@ -1,4 +1,3 @@
-
 # Rule: Generating a Task List from User Requirements
 
 ## Corporate Standards
@@ -8,6 +7,7 @@ This phase is governed by your organization's Corporate Standards. Before procee
 1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
 2. **Load applicable standards**: Based on the manifest's `phases.generate-tasks.includes` list, read and apply each referenced standards file from `/standards/`:
+
    ```yaml
    # Example from standards-manifest.yml:
    phases:
@@ -72,6 +72,7 @@ The generated task list _must_ follow this structure:
 **IMPORTANT:** As you complete each task, you must check it off in this markdown file by changing `- [ ]` to `- [x]`. This helps track progress and ensures you don't skip any steps.
 
 Example:
+
 - `- [ ] 1.1 Read file` → `- [x] 1.1 Read file` (after completing)
 
 Update the file after completing each sub-task, not just after completing an entire parent task.

@@ -7,6 +7,7 @@ This phase is governed by your organization's Corporate Standards. Before procee
 1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
 2. **Load applicable standards**: Based on the manifest's `phases.create-drd.includes` list, read and apply each referenced standards file from `/standards/`:
+
    ```yaml
    # Example from standards-manifest.yml:
    phases:
@@ -37,7 +38,7 @@ To guide an AI assistant in creating a detailed Design Requirements Document (DR
 ## Process
 
 1.  **Receive Initial Prompt:** The user provides a brief description or request for a new design, UI component, or visual asset.
-2.  **Ask Clarifying Questions:** Before writing the DRD, the AI *must* ask only the most essential clarifying questions needed to write a clear DRD. Limit questions to 3-5 critical gaps in understanding. The goal is to understand the visual direction, user experience goals, and brand alignment. Make sure to provide options in letter/number lists so I can respond easily with my selections.
+2.  **Ask Clarifying Questions:** Before writing the DRD, the AI _must_ ask only the most essential clarifying questions needed to write a clear DRD. Limit questions to 3-5 critical gaps in understanding. The goal is to understand the visual direction, user experience goals, and brand alignment. Make sure to provide options in letter/number lists so I can respond easily with my selections.
 3.  **Generate DRD:** Based on the initial prompt and the user's answers to the clarifying questions, generate a DRD using the structure outlined below.
 4.  **Save DRD:** Save the generated document as `drd-[design-name].md` inside the `/tasks` directory.
 
@@ -45,11 +46,11 @@ To guide an AI assistant in creating a detailed Design Requirements Document (DR
 
 Ask only the most critical questions needed to write a clear DRD. Focus on areas where the initial prompt is ambiguous or missing essential context. Common areas that may need clarification:
 
-*   **Purpose/Context:** If unclear - "What is the primary purpose of this design and where will it be used?"
-*   **Target Audience:** If vague - "Who is the intended audience for this design?"
-*   **Visual Direction:** If unspecified - "What mood, tone, or style should this design convey?"
-*   **Brand Alignment:** If applicable - "Should this follow existing brand guidelines or establish new visual direction?"
-*   **Constraints:** If unstated - "Are there specific platforms, sizes, or accessibility requirements?"
+- **Purpose/Context:** If unclear - "What is the primary purpose of this design and where will it be used?"
+- **Target Audience:** If vague - "Who is the intended audience for this design?"
+- **Visual Direction:** If unspecified - "What mood, tone, or style should this design convey?"
+- **Brand Alignment:** If applicable - "Should this follow existing brand guidelines or establish new visual direction?"
+- **Constraints:** If unstated - "Are there specific platforms, sizes, or accessibility requirements?"
 
 **Important:** Only ask questions when the answer isn't reasonably inferable from the initial prompt. Prioritize questions that would significantly impact the DRD's clarity.
 
@@ -89,28 +90,28 @@ The generated DRD should include the following sections:
 2.  **Goals:** List the specific, measurable objectives for this design work.
 3.  **User Context:** Describe who will interact with this design, their needs, and the context of use.
 4.  **Visual Requirements:** Detail the specific visual elements required:
-    *   Color palette (primary, secondary, accent colors)
-    *   Typography (fonts, sizes, hierarchy)
-    *   Imagery style (photography, illustration, iconography)
-    *   Spacing and layout principles
-    *   Component specifications
+    - Color palette (primary, secondary, accent colors)
+    - Typography (fonts, sizes, hierarchy)
+    - Imagery style (photography, illustration, iconography)
+    - Spacing and layout principles
+    - Component specifications
 5.  **Interaction & Behavior:** Describe how elements should behave:
-    *   Hover/focus states
-    *   Transitions and animations
-    *   Responsive behavior
-    *   Error and success states
+    - Hover/focus states
+    - Transitions and animations
+    - Responsive behavior
+    - Error and success states
 6.  **Accessibility Requirements:** Specify accessibility standards:
-    *   Color contrast requirements
-    *   Screen reader considerations
-    *   Keyboard navigation
-    *   WCAG compliance level (A, AA, AAA)
-7.  **Non-Goals (Out of Scope):** Clearly state what this design will *not* include to manage scope.
+    - Color contrast requirements
+    - Screen reader considerations
+    - Keyboard navigation
+    - WCAG compliance level (A, AA, AAA)
+7.  **Non-Goals (Out of Scope):** Clearly state what this design will _not_ include to manage scope.
 8.  **Brand & Style References:** Link to brand guidelines, mood boards, or reference designs if applicable.
 9.  **Technical Constraints:** Mention any known technical constraints that affect design decisions (e.g., "Must work in browsers without CSS Grid support", "Maximum file size for assets").
 10. **Deliverables:** List the expected outputs:
-    *   File formats (Figma, Sketch, PNG, SVG, etc.)
-    *   Asset specifications
-    *   Documentation requirements
+    - File formats (Figma, Sketch, PNG, SVG, etc.)
+    - Asset specifications
+    - Documentation requirements
 11. **Success Criteria:** How will the success of this design be measured? (e.g., "Passes WCAG AA accessibility audit", "Achieves 90%+ approval in user testing").
 12. **Open Questions:** List any remaining questions or areas needing further clarification.
 
@@ -120,9 +121,9 @@ Assume the primary reader of the DRD is a **junior designer**. Therefore, requir
 
 ## Output
 
-*   **Format:** Markdown (`.md`)
-*   **Location:** `/tasks/`
-*   **Filename:** `drd-[design-name]-[version].md`
+- **Format:** Markdown (`.md`)
+- **Location:** `/tasks/`
+- **Filename:** `drd-[design-name]-[version].md`
 
 ## Final instructions
 

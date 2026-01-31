@@ -7,6 +7,7 @@ This phase is governed by your organization's Corporate Standards. Before procee
 1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
 2. **Load applicable standards**: Based on the manifest's `phases.research.includes` list, read and apply each referenced standards file from `/standards/`:
+
    ```yaml
    # Example from standards-manifest.yml:
    phases:
@@ -41,6 +42,7 @@ The output is a clear, concise Research Summary Document (RSD) in Markdown forma
 ## When to Use
 
 Use this **before** creating:
+
 - A **PRD** (new feature, refactor, integration, infrastructure change)
 - A **CRD** (content, copy, messaging, documentation, articles)
 - A **DRD** (UI/UX design, visual design, components)
@@ -98,7 +100,7 @@ The Research phase ensures requirements are grounded in reality—existing patte
 7. **Generate RSD:** Organize findings into the RSD structure defined below, tailored to the project type(s). Make it:
    - **Actionable** (clearly tied to decisions the PRD/CRD/DRD should make)
    - **Prioritized** (what matters most vs. nice-to-have context)
-   - **Scoped** (call out what you did *not* research due to depth/time constraints)
+   - **Scoped** (call out what you did _not_ research due to depth/time constraints)
 
 8. **Save RSD:** Save the generated document as `rsd-[project-name]-[version].md` inside the `/tasks` directory.
 
@@ -109,6 +111,7 @@ The Research phase ensures requirements are grounded in reality—existing patte
 Ask only the most impactful questions that change **what** or **where** you research. 4–7 questions is typical.
 
 **Always cover:**
+
 - Project type(s)
 - Desired research depth
 - Primary focus/goal of research
@@ -286,11 +289,13 @@ The generated RSD should include the following sections. Omit or minimize sectio
 ## 2. Existing Context & Assets (Internal)
 
 ### 2.1 Related Requirements & Docs
+
 - Existing PRDs/CRDs/DRDs or documentation:
   - `[path/filename]` – brief description of relevance
   - ...
 
 ### 2.2 Codebase / System Context (for Product/Design)
+
 - Relevant services, modules, and components:
   - `[path/module]` – role and relevance
 - Key integration points and dependencies
@@ -298,12 +303,14 @@ The generated RSD should include the following sections. Omit or minimize sectio
 - Reusable utilities or patterns identified
 
 ### 2.3 Content & Brand Context (for Content)
+
 - Relevant content or templates:
   - `[path/filename]` – style and key takeaways
 - Brand/voice guidelines summary
 - Known style/formatting conventions
 
 ### 2.4 Design System Context (for Design)
+
 - Key components and tokens:
   - `[component/token]` – notes on usage
 - Existing patterns to reuse or align with
@@ -322,15 +329,18 @@ The generated RSD should include the following sections. Omit or minimize sectio
 ## 4. External Research: Best Practices & References
 
 ### 4.1 Domain & Framework Best Practices
+
 - Summary of recommended approaches for this tech/domain
 - Notable dos and don'ts
 - Key patterns to consider
 
 ### 4.2 Reference Implementations / Examples
+
 - **Example 1:** [source/name] – key ideas applicable here
 - **Example 2:** [source/name] – key ideas applicable here
 
 ### 4.3 Standards, Compliance, and Accessibility
+
 - Applicable standards (e.g., WCAG 2.1 AA, GDPR, HIPAA)
 - Specific implications for this project
 
@@ -339,15 +349,18 @@ The generated RSD should include the following sections. Omit or minimize sectio
 ## 5. Constraints, Risks, and Dependencies
 
 ### 5.1 Constraints
+
 - **Technical:** (stack, architecture, performance, scaling limits)
 - **Organizational:** (timeline, team capacity, process requirements)
 - **Brand / Legal / Compliance:** (restrictions, required approvals)
 
 ### 5.2 Risks
+
 - **[Risk 1]:** Impact & likelihood, suggested mitigation
 - **[Risk 2]:** Impact & likelihood, suggested mitigation
 
 ### 5.3 Dependencies & Assumptions
+
 - Other systems, teams, or decisions this depends on
 - Key assumptions the PRD/CRD/DRD should confirm or reject
 
@@ -365,16 +378,19 @@ The generated RSD should include the following sections. Omit or minimize sectio
 ## 7. Key Findings by Track
 
 ### 7.1 Product / Feature Findings (if applicable)
+
 1. [Key finding most relevant to PRD]
 2. [Key finding]
 3. [Key finding]
 
 ### 7.2 Content Findings (if applicable)
+
 1. [Key finding most relevant to CRD]
 2. [Key finding]
 3. [Key finding]
 
 ### 7.3 Design Findings (if applicable)
+
 1. [Key finding most relevant to DRD]
 2. [Key finding]
 3. [Key finding]
@@ -384,10 +400,12 @@ The generated RSD should include the following sections. Omit or minimize sectio
 ## 8. Recommendations for the Create Phase
 
 ### 8.1 Recommended Requirements Document(s)
+
 - **Create next:** PRD / CRD / DRD (or combination)
 - **Suggested filename(s):** `prd-[name]-v1.md`, `crd-[name]-v1.md`, `drd-[name]-v1.md`
 
 ### 8.2 Scope Recommendations
+
 - **MVP scope (must have):**
   - Item 1
   - Item 2
@@ -396,11 +414,13 @@ The generated RSD should include the following sections. Omit or minimize sectio
   - Item 2
 
 ### 8.3 Key Questions the Requirements Doc Should Answer
+
 1. [Question that emerged from research]
 2. [Question that emerged from research]
 3. [Question that emerged from research]
 
 ### 8.4 Suggested Decisions to Lock In Now
+
 - **Decision 1:** (e.g., reuse existing auth module vs. build new)
 - **Decision 2:** (e.g., target mobile-first vs. desktop-first)
 
@@ -427,6 +447,7 @@ The generated RSD should include the following sections. Omit or minimize sectio
 ## Target Audience
 
 Assume the primary readers of the RSD are:
+
 - The **user** who will use it to inform their requirements decisions
 - The **AI assistant** that will create the subsequent PRD/CRD/DRD
 
@@ -439,6 +460,7 @@ Therefore, findings should be explicit, actionable, and clearly tied to decision
 - **Filename:** `rsd-[project-name]-[version].md`
 
 Version the RSD like other docs:
+
 - `rsd-user-auth-v1.md`, `rsd-user-auth-v2.md`, etc.
 
 ---

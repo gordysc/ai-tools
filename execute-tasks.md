@@ -1,4 +1,4 @@
-# Task List Management 
+# Task List Management
 
 ## Corporate Standards
 
@@ -7,6 +7,7 @@ This phase is governed by your organization's Corporate Standards. Before procee
 1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
 2. **Load applicable standards**: Based on the manifest's `phases.execute-tasks.includes` list, read and apply each referenced standards file from `/standards/`:
+
    ```yaml
    # Example from standards-manifest.yml:
    phases:
@@ -34,6 +35,7 @@ If the standards manifest or standards files are not available, proceed without 
 Guidelines for managing task lists in markdown files to track progress on completing a PRD
 
 ## Task Implementation
+
 - **One sub-task at a time:** Do **NOT** start the next subtask until you ask the user for permission and they say "yes" or "y"
 - **Completion protocol:**
   1. When you finish a **sub-task**, immediately mark it as completed by changing `[ ]` to `[x]`.

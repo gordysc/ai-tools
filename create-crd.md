@@ -7,6 +7,7 @@ This phase is governed by your organization's Corporate Standards. Before procee
 1. **Read the standards manifest**: Load `/standards/standards-manifest.yml` to determine which standards apply to this phase.
 
 2. **Load applicable standards**: Based on the manifest's `phases.create-crd.includes` list, read and apply each referenced standards file from `/standards/`:
+
    ```yaml
    # Example from standards-manifest.yml:
    phases:
@@ -37,7 +38,7 @@ To guide an AI assistant in creating a detailed Content Requirements Document (C
 ## Process
 
 1.  **Receive Initial Prompt:** The user provides a brief description or request for new content, copy, or messaging.
-2.  **Ask Clarifying Questions:** Before writing the CRD, the AI *must* ask only the most essential clarifying questions needed to write a clear CRD. Limit questions to 3-5 critical gaps in understanding. The goal is to understand the content purpose, audience, tone, and key messages. Make sure to provide options in letter/number lists so I can respond easily with my selections.
+2.  **Ask Clarifying Questions:** Before writing the CRD, the AI _must_ ask only the most essential clarifying questions needed to write a clear CRD. Limit questions to 3-5 critical gaps in understanding. The goal is to understand the content purpose, audience, tone, and key messages. Make sure to provide options in letter/number lists so I can respond easily with my selections.
 3.  **Generate CRD:** Based on the initial prompt and the user's answers to the clarifying questions, generate a CRD using the structure outlined below.
 4.  **Save CRD:** Save the generated document as `crd-[content-name].md` inside the `/tasks` directory.
 
@@ -45,11 +46,11 @@ To guide an AI assistant in creating a detailed Content Requirements Document (C
 
 Ask only the most critical questions needed to write a clear CRD. Focus on areas where the initial prompt is ambiguous or missing essential context. Common areas that may need clarification:
 
-*   **Purpose/Goal:** If unclear - "What is the primary goal of this content? (inform, persuade, entertain, convert)"
-*   **Target Audience:** If vague - "Who is the intended audience and what do they care about?"
-*   **Tone & Voice:** If unspecified - "What tone should this content have?"
-*   **Key Messages:** If unstated - "What are the 2-3 most important points to communicate?"
-*   **Call to Action:** If applicable - "What action should the reader take after consuming this content?"
+- **Purpose/Goal:** If unclear - "What is the primary goal of this content? (inform, persuade, entertain, convert)"
+- **Target Audience:** If vague - "Who is the intended audience and what do they care about?"
+- **Tone & Voice:** If unspecified - "What tone should this content have?"
+- **Key Messages:** If unstated - "What are the 2-3 most important points to communicate?"
+- **Call to Action:** If applicable - "What action should the reader take after consuming this content?"
 
 **Important:** Only ask questions when the answer isn't reasonably inferable from the initial prompt. Prioritize questions that would significantly impact the CRD's clarity.
 
@@ -88,44 +89,44 @@ The generated CRD should include the following sections:
 1.  **Introduction/Overview:** Briefly describe the content piece and its purpose. State the content objective.
 2.  **Goals:** List the specific, measurable objectives for this content.
 3.  **Target Audience:** Detail the intended reader:
-    *   Demographics and psychographics
-    *   Pain points and motivations
-    *   Current knowledge level on the topic
-    *   Where they are in the customer journey (if applicable)
+    - Demographics and psychographics
+    - Pain points and motivations
+    - Current knowledge level on the topic
+    - Where they are in the customer journey (if applicable)
 4.  **Key Messages:** List the core messages that must be communicated:
-    *   Primary message (the one takeaway)
-    *   Supporting messages (2-3 secondary points)
-    *   Proof points or evidence to include
+    - Primary message (the one takeaway)
+    - Supporting messages (2-3 secondary points)
+    - Proof points or evidence to include
 5.  **Tone & Voice:** Define the content's personality:
-    *   Voice characteristics (e.g., authoritative, friendly, witty)
-    *   Tone for this piece (e.g., urgent, reassuring, celebratory)
-    *   Words/phrases to use
-    *   Words/phrases to avoid
+    - Voice characteristics (e.g., authoritative, friendly, witty)
+    - Tone for this piece (e.g., urgent, reassuring, celebratory)
+    - Words/phrases to use
+    - Words/phrases to avoid
 6.  **Content Structure:** Outline the expected format:
-    *   Content type (blog post, email, landing page, UI copy, etc.)
-    *   Suggested outline or sections
-    *   Word count or length guidelines
-    *   Headline/subject line requirements
+    - Content type (blog post, email, landing page, UI copy, etc.)
+    - Suggested outline or sections
+    - Word count or length guidelines
+    - Headline/subject line requirements
 7.  **SEO & Keywords (if applicable):** Specify search optimization requirements:
-    *   Primary keyword(s)
-    *   Secondary keywords
-    *   Meta description requirements
-    *   Internal/external linking guidelines
+    - Primary keyword(s)
+    - Secondary keywords
+    - Meta description requirements
+    - Internal/external linking guidelines
 8.  **Call to Action:** Define the desired reader action:
-    *   Primary CTA
-    *   Secondary CTA (if applicable)
-    *   CTA placement and frequency
-9.  **Non-Goals (Out of Scope):** Clearly state what this content will *not* cover to manage scope.
+    - Primary CTA
+    - Secondary CTA (if applicable)
+    - CTA placement and frequency
+9.  **Non-Goals (Out of Scope):** Clearly state what this content will _not_ cover to manage scope.
 10. **Brand & Style References:** Link to brand voice guidelines, style guides, or reference content if applicable.
 11. **Technical Requirements:** Mention any platform-specific constraints:
-    *   Character limits
-    *   Formatting restrictions
-    *   Localization/translation needs
-    *   Accessibility considerations (alt text, reading level)
+    - Character limits
+    - Formatting restrictions
+    - Localization/translation needs
+    - Accessibility considerations (alt text, reading level)
 12. **Deliverables:** List the expected outputs:
-    *   File format (Google Doc, Markdown, CMS draft, etc.)
-    *   Number of variations (if A/B testing)
-    *   Supporting assets needed (images, graphics)
+    - File format (Google Doc, Markdown, CMS draft, etc.)
+    - Number of variations (if A/B testing)
+    - Supporting assets needed (images, graphics)
 13. **Success Metrics:** How will the success of this content be measured? (e.g., "Achieve 5% click-through rate", "Rank on page 1 for target keyword", "Reduce support tickets by 20%").
 14. **Open Questions:** List any remaining questions or areas needing further clarification.
 
@@ -135,9 +136,9 @@ Assume the primary reader of the CRD is a **junior content creator or copywriter
 
 ## Output
 
-*   **Format:** Markdown (`.md`)
-*   **Location:** `/tasks/`
-*   **Filename:** `crd-[content-name]-[version].md`
+- **Format:** Markdown (`.md`)
+- **Location:** `/tasks/`
+- **Filename:** `crd-[content-name]-[version].md`
 
 ## Final instructions
 

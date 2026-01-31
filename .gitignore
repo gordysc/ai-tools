@@ -1,0 +1,9 @@
+# AIT CLI state
+.ait/
+
+# Node.js
+node_modules/
+cli/dist/
+
+# OS files
+.DS_Store

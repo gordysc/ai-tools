@@ -51,14 +51,14 @@ All outputs are saved to a `/tasks` directory for tracking and reference.
 
 ## Prompt Files
 
-| File | Purpose | Output |
-|------|---------|--------|
-| `research.md` | Research Summary Document | `tasks/rsd-[project-name]-[version].md` |
-| `create-prd.md` | Product Requirements Document | `tasks/prd-[feature-name]-[version].md` |
-| `create-crd.md` | Content Requirements Document | `tasks/crd-[content-name]-[version].md` |
-| `create-drd.md` | Design Requirements Document | `tasks/drd-[design-name]-[version].md` |
-| `generate-tasks.md` | Task list generation | `tasks/tasks-[feature-name].md` |
-| `execute-tasks.md` | Task execution guidelines | Updates the task list in place |
+| File                | Purpose                       | Output                                  |
+| ------------------- | ----------------------------- | --------------------------------------- |
+| `research.md`       | Research Summary Document     | `tasks/rsd-[project-name]-[version].md` |
+| `create-prd.md`     | Product Requirements Document | `tasks/prd-[feature-name]-[version].md` |
+| `create-crd.md`     | Content Requirements Document | `tasks/crd-[content-name]-[version].md` |
+| `create-drd.md`     | Design Requirements Document  | `tasks/drd-[design-name]-[version].md`  |
+| `generate-tasks.md` | Task list generation          | `tasks/tasks-[feature-name].md`         |
+| `execute-tasks.md`  | Task execution guidelines     | Updates the task list in place          |
 
 ## Usage
 
@@ -77,6 +77,7 @@ I want to add a user authentication system with email/password login and OAuth s
 ```
 
 The AI will:
+
 1. Ask 4-7 clarifying questions about research scope, depth, and focus
 2. Analyze internal codebase for existing patterns, constraints, and reusable components
 3. Research external best practices, reference implementations, and standards
@@ -84,6 +85,7 @@ The AI will:
 5. Save it to `/tasks/rsd-user-auth-v1.md`
 
 The RSD includes:
+
 - Existing context and assets in your codebase
 - Best practices and reference implementations
 - Constraints, risks, and dependencies
@@ -102,6 +104,7 @@ Based on the research in tasks/rsd-user-auth-v1.md, I want to add a user authent
 ```
 
 The AI will:
+
 1. Ask 3-5 clarifying questions with multiple-choice options
 2. Generate a detailed requirements document
 3. Save it to `/tasks/prd-user-auth-v1.md`
@@ -135,6 +138,7 @@ Generate tasks based on: tasks/prd-user-auth-v1.md
 ```
 
 The AI will:
+
 1. Analyze the requirements document
 2. Generate high-level parent tasks (including "Create feature branch")
 3. Wait for your approval ("Go")
@@ -157,7 +161,7 @@ The AI will:
   - [ ] 2.1 Create signup endpoint
   - [ ] 2.2 Create login endpoint
   - [ ] 2.3 Add password hashing utility
-...
+        ...
 ```
 
 ### Step 3: Execute Tasks
@@ -173,6 +177,7 @@ Execute the tasks in: tasks/tasks-user-auth.md
 ```
 
 The AI will:
+
 1. Read the task list and find the next uncompleted sub-task
 2. Implement that sub-task
 3. Mark it complete (`[x]`)
@@ -233,15 +238,15 @@ See `/standards/README.md` for detailed setup instructions.
 
 ## Quick Reference
 
-| What you want to do | Use this file |
-|---------------------|---------------|
-| Research before requirements | `research.md` |
-| Plan a new feature | `create-prd.md` |
-| Plan content/copy | `create-crd.md` |
-| Plan a design | `create-drd.md` |
-| Break requirements into tasks | `generate-tasks.md` |
-| Execute tasks step-by-step | `execute-tasks.md` |
-| Customize team standards | `/standards/` directory |
+| What you want to do           | Use this file           |
+| ----------------------------- | ----------------------- |
+| Research before requirements  | `research.md`           |
+| Plan a new feature            | `create-prd.md`         |
+| Plan content/copy             | `create-crd.md`         |
+| Plan a design                 | `create-drd.md`         |
+| Break requirements into tasks | `generate-tasks.md`     |
+| Execute tasks step-by-step    | `execute-tasks.md`      |
+| Customize team standards      | `/standards/` directory |
 
 ## Directory Structure
 
